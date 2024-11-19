@@ -2,6 +2,7 @@
 
 class TDSSensor {
   public:
+    TDSSensor();
     void setAref(float aref);
     void setPin(int pin);
     void begin();
