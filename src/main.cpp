@@ -1,18 +1,21 @@
 #include <Arduino.h>
+#include <tds_sensor.h>
 
-// put function declarations here:
-int myFunction(int, int);
+#define AREF_V 3.3
+TDSSensor tdsSensor;
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+void setup()
+{
+  Serial.begin(115200);
+  tdsSensor.begin();
+  tdsSensor.setPin(15);
+  tdsSensor.setAref(AREF_V);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void loop()
+{
+  tdsSensor.update();
+  Serial.print("TDS Value: ");
+  Serial.println(tdsSensor.getTDSValue());
+  delay(10000);
 }
