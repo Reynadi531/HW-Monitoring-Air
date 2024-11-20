@@ -29,6 +29,11 @@ float TDSSensor::getTDSValue()
   return this->tdsValue;
 }
 
+float TDSSensor::getVoltage()
+{
+  return this->voltage;
+}
+
 void TDSSensor::begin()
 {
   pinMode(_pin, INPUT);

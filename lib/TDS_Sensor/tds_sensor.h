@@ -7,6 +7,7 @@ class TDSSensor {
     void setPin(int pin);
     void begin();
     float getTDSValue();
+    float getVoltage();
     void setConstantaCalibration(float constanta);
     void update();
   private:
