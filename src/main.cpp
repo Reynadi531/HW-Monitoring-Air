@@ -1,23 +1,23 @@
 #include <Arduino.h>
-#include <tds_sensor.h>
+#include <ph_sensor.h>
 
-#define AREF_V 3.3
-#define TDS_PIN 15
+#define AREF_V 5.0
+#define PH_PIN 13
 
-TDSSensor tdsSensor;
+PHSensor phSensor;
 
 void setup()
 {
   Serial.begin(115200);
-  tdsSensor.begin();
-  tdsSensor.setPin(TDS_PIN);
-  tdsSensor.setAref(AREF_V);
+  phSensor.setupPin(PH_PIN);
+  phSensor.setAref(AREF_V);
+  phSensor.setAdcRange(1023);
+  phSensor.begin();
 }
 
 void loop()
 {
-  tdsSensor.update();
-  Serial.print("TDS Value: ");
-  Serial.println(tdsSensor.getTDSValue());
-  delay(100);
+  phSensor.update();
+  Serial.printf("Voltage: %f\n", phSensor.getVoltage());
+  delay(1000);
 }
