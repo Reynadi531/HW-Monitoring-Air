@@ -2,5 +2,4 @@
 
 ## Sensor
 - [ ] TDS Sensor
-- [ ] pH Sensor
 - [ ] Turbidity Sensor
